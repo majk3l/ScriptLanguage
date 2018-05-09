@@ -1,37 +1,33 @@
-# Laboratorium #03 - Zadania do samodzielnego wykonania
+# Lab #03
 
-## Zadania obowiązkowe:
+## Exercises:
 
 ### #1:
 
-Zaimplementuj funkcję ```hand_rank(hand)```, która będzie przyjmować jako parametr 5-elementową listę krotek reprezentujących karty
-(zob. lab02.md) i zwracać liczbę całkowitą w zakresie od 10 do 1 reprezentującą rangę układu tych 5 kart w pokerze pięciokartowym 
-dobieranym (http://pl.wikipedia.org/wiki/Poker), gdzie 10 - to poker królewski, 9 - poker, 8 - kareta, 7 - full itd. Do implementacji wykorzystaj 
-szablon funkcji umieszczony w repozytorium, w pliku ```poker.py```. Umieść w tym pliku swoją definicję funkcji ```histogram```.
+Implement function ```hand_rank(hand)```, which will take as input list of 5 tuples (representing player hand - refer to lab02) and return an ```int``` in range from 10 to 1 that will represent player hand strength in 5 card draw poker game (https://en.wikipedia.org/wiki/List_of_poker_hands), where 10 - royal flush, 9 - straight flush , 8 - four of a kind etc.
 
-Zwróć uwagę, że o starszeństwie decydują różne reguły, które opierają się na 3 atrybutach:
+Use ```poker.py``` (from this repo) as a template. Add your implementation of ```histogram()``` function from previous lab.
 
-- czy wszystkie karty są jednego koloru,
-- czy karty są "po kolei",
-- czy w układzie występują powtórzenia, tzn. zawiera 4, 3, 2 karty o tej samej randze.
+Each hand falls into a hand-ranking category determined by the patterns formed by its cards. There are some rules to check:
 
-Do sprawdzenia ile rang kart powtarza się, najłatwiej będzie użyć zaimplementowanej na poprzednich laboratoriach funkcji ```histogram``` - 
-funkcja ta przyjmowała łańcuch tekstowy, ale jeżeli została zaimplementowana z użyciem pętli ```for``` nic nie stoi na przeszkodzie wywołać
-ją z listą jako parametr. Gdy wywołamy ją na liście rang karty, możemy sprawdzić czy występują powtórzenia kart, natomiast gdy wywołamy ją
-na liście kolorów kart możemy sprawdzić czy wszystkie karty są jednego koloru. Przykładowo mamy listę:
+- five cards are in one suit,
+- five cards of sequential rank,
+- some ranks occur more then once.
+
+Use ```histogram()``` from previous lab to check if some ranks occur more then once. If we create list of cards' ranks, we can check it for some pairs, three of a kind and four of a kind. For example, if we have list:
 
 ```[('A','c'), ('A','s'), ('A','h'), ('9','c'), ('8','s')]```
 
-która reprezentuje następujący układ kart:
+Which is a following hand:
 
  # &#127153; &#127185; &#127137; &#127193; &#127144;
 
-możemy stworzyć listę samych rang z układu, która będzie wyglądać następująco:
+we can create list of the ranks:
 
 ```['A', 'A', 'A', '9', '8']```
 
-po wywołaniu funkcji ```histogram``` na powyższej liście otrzymamy słownik:
+using ```histogram()``` on that list we can get dictionary:
 
 ```{'8': 1, '9': 1, 'A': 3}```
 
-po sprawdzeniu wartości słownika wiemy, czy karta o jakiejś randze pojawiła się więcej niż raz (w tym wypadku as).
+when we check the values, we will know if there is more than one occurence of some rank (In this case it was Ace).
