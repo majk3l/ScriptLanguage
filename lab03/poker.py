@@ -1,37 +1,35 @@
 
 def hand_rank(hand):
-    hand_rank_list = []  # TODO: pobierz liste rang kart gracza. Uzyj listy skladanej.
-    hand_color_list = [] # TODO: pobierz liste kolorow kart gracza. Uzyj listy skladanej.
+    hand_rank_list = []  # TODO: Create list of cards ranks. Use list comprehension.
+    hand_color_list = [] # TODO: Create list of cards suits. Use list comprehension.
 
-    # histogramy rang kart graczy  okresla ile razy wystapila karta o tej samej randze,
-    # potrzebne do ustalenia ukladu kart
-    # TODO: uzyj funkcji 'histogram' z poprzedniego laboratorium!
+    # Histogram of ranks tells us if there is more than once occurence of card rank.
+    # We need this to establish what hand do we have.
+    # TODO: use histogram() from previous lab.
     hand_rank_histogram = histogram(hand_rank_list)
-    # histogramy kolorow kart graczy, jesli 5 in hand_color_histogram.values() == True
-    # to wszystkie karty sa jednego koloru
+    # Histogram of suits, if 5 in hand_color_histogram.values() == True
+    # than all of the cards are in the same suit
     hand_color_histogram = histogram(hand_color_list)
-    # czy karty sa "po kolei" (konieczne w: poker krolewski, pokerze, strit)
-    # TODO: zaimplementuj funkcje is_rank_sequence(hand) ktora zwraca True jesli karty sa po kolei
-    #       w przeciwnym razie zwraca false. Pobiera liste kart jako parametr
+    # We want to find if the hand contains five cards of sequential rank
+    # TODO: implement function is_rank_sequence(hand) which returns true if so
     is_hand_rank_sequence = is_rank_sequence(hand) 
 
-    hand_strength = 0 # zwracana zmienna, ja trzeba ustawic
-    # ------ sprawdzamy uklad gracza 1:
-    # --- sprawdzamy poker krolewski: 5 kart w tym samym kolorze, po kolei, najwyzsza to as
+    hand_strength = 0 # returned value, you need to set this
+    # ------ lets check player's hand:
+    # --- Royal flush: 5 cards of sequential rank, all of the same suit, Ace is the highest
     if( (5 in hand_color_histogram.values()) and ( 'A' in hand_rank_list ) and is_hand_rank_sequence):
         hand_strength = 10
-    # --- sprawdzamy poker: 5 kart w tym samym kolorze, po kolei
+    # --- straight flush: 5 cards of sequential rank, all of the same suit
     elif( ( 5 in hand_color_histogram.values()) and is_hand_rank_sequence):
         hand_strength =  9
-    # TODO: za pomoca instrukcji elif oraz else sprawdz ponizsze warunki i ustaw
-    #       wartosc zmiennej hand_strength:
-    #        - sprawdzamy karete: 4 karty tej samej rangi
-    #        - sprawdzamy full house: 3 karty tej samej rangi i 2 karty tej samej rangi
-    #        - sprawdzamy kolor
-    #        - sprawdzamy strit
-    #        - sprawdzamy trojke 
-    #        - sprawdzamy wysoka karte
-    #        - sprawdzamy dwie pary
-    #        - sprawdzamy jedna pare
-
+    # TODO: check rest of possible hand ranks 
+    #       set the hand_strength variable:
+    #        - four of a kind: four cards of the same rank and one card of another rank
+    #        - full house: three cards of one rank and two cards of another rank
+    #        - flush: five cards all of the same suit, not all of sequential rank
+    #        - straight: five cards of sequential rank, not all of the same suit
+    #        - three of a kind: three cards of the same rank and two cards of two other ranks
+    #        - two pair: two cards of the same rank, two cards of another rank and one card of a third rank
+    #        - One pair: two cards of the same rank and three cards of three other ranks
+    #        - high card: five cards not all of sequential rank or of the same suit, and none of which are of the same rank
     return(hand_strength)
