@@ -1,8 +1,8 @@
-# Lab #03
+# Lab #03 - Coding functions: practice
 
-## Exercises:
+### Exercises:
 
-### #1:
+### 03.1:
 
 Implement function ```hand_rank(hand)```, which will take as input list of 5 tuples (representing player hand - refer to lab02) and return an ```int``` in range from 10 to 1 that will represent player hand strength in 5 card draw poker game (https://en.wikipedia.org/wiki/List_of_poker_hands), where 10 - royal flush, 9 - straight flush , 8 - four of a kind etc.
 
@@ -16,7 +16,7 @@ Each hand falls into a hand-ranking category determined by the patterns formed b
 
 Use ```histogram()``` from previous lab to check if some ranks occur more then once. If we create list of cards' ranks, we can check it for some pairs, three of a kind and four of a kind. For example, if we have list:
 
-```[('A','c'), ('A','s'), ('A','h'), ('9','c'), ('8','s')]```
+```[('A','h'), ('A','c'), ('A','s'), ('9','c'), ('8','s')]```
 
 Which is a following hand:
 

@@ -6,15 +6,15 @@ players = []
 for i in range (0, num_players):
     players.append(Player(1000))
 
-print("Nowa talia:")
+print("New deck:")
 deck = Deck()
 print(deck)
 
-print("Talia potasowana:")
+print("Shuffled deck:")
 deck.shuffle()
 print(deck)
 
-print("Rozdane karty 2 graczom:")
+print("Cards dealt to players:")
 
 hands = deck.deal(players)
 for player in players:

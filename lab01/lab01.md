@@ -1,38 +1,34 @@
-# Laboratorium #01 - Zadania do samodzielnego wykonania
+# Lab #01 - Simple scripts that take arguments from command line
 
-## Zadania obowiązkowe:
+### Exercises:
 
-### #1:
-Napisz prosty skrypt, który przyjmuje jako parametry dwie liczby oraz znak operacji (+, -, *) i wykonuje na nich proste operacje arytmetyczne. Skrypt zapisz pod nazwą ```arithmetics.py```. Do porównywania łańcuchów tekstowych wykorzystaj operator ==. Parametry powinny być oddzielone spacjami. Przykład działania (skrypt uruchomiony z wiersza poleceń):
-```bash
+### 01.1:
+Write simple script, that takes following arguments from command-line: two numbers and operator (+, -, *) i does simple arithmetic operations. The script file should be named ```arithmetics.py```. The arguments should be separated by space, like in this example script execution from command line:
+```text
 python arithmetics.py 2 + 4
 6
 ```
 
-### #2:
-Napisz skrypt, który wylicza na podstawie zadanego argumentu (daty w postacirrrr-mm-dd) liczbę dni od tego czasu do daty aktualnej. Skrypt zapisz pod nazwą ```days.py```. Skorzystaj z: https://docs.python.org/3/library/datetime.html#date-objects
-
-### #3:
-Napisz skrypt, który policzy ile argumentów podanych przez użytkownika (oddzielonych spacjami) ma 3 lub więcej znaków. Skrypt zapisz pod nazwą ```arguments.py```. Przykład działania:
-```bash
-python arguments.py o co chodzi z tym Pythonem
+### 01.2:
+Write simple script, that counts all the input arguments provided by use have 3 or more characters. The script file should be named ```arguments.py```. The result should be printed out to standard output:
+```text
+python arguments.py This is test sentence
 3
 ```
-zmodyfikuj skrypt tak, aby z listy argumentów, wybierane były argumenty o liczbie
-znaków 3 lub więcej, a następnie łączone w odwrotnej kolejności w napis. Uzyskany w ten sposób napis należy wyświetlić. Przykład:
-```bash
-python arguments.py o co chodzi z tym Pythonem
+Modify this script so, the scripts prints out the selected words (3 or more character) in reversed order:
+```text
+python arguments.py This is test sentence
 3
-Pythonem tym chodzi
+sentence test This
 ```
-### #4:
-Napisz program ```quadratic.py```  do obliczania miejsc zerowych równania kwadratowego. Współczynniki (a, b, c) podawane z wiersza poleceń. Wyjście programu powinno być następujące:
-- pierwsza linia wyjścia: liczba miejsc zerowych
-- druga linia wyjścia: miejsca zerowe oddzielone spacją, o ile istnieją. 
+### 01.3:
+Write script ```quadratic.py```  that solves quadratic equation. Coefficients (a, b, c) should be taken from command-line. The script should print out:
+- first line: number of solutions (2/1/0)
+- second line: solutions, if they exist
 
-W przypadku braku miejsc zerowych skrypt powinien wypisać linię zawierającą liczbę 0. Przykład:
+Example:
 
-```bash
+```text
 python quadratic.py 1 4 3
 2
 -1.0 -3.0

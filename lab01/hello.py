@@ -1,5 +1,5 @@
 import sys
 if len(sys.argv) < 2:
-	print("Uruchamiajac skrypt podaj jako parametr swoje imie!")
+	print("Run the script with your name as argument")
 else:
-	print("Witaj " + sys.argv[1])
+	print("Hello " + sys.argv[1])

@@ -1,40 +1,43 @@
-# Laboratorium #02 - Zadania do samodzielnego wykonania
+# Lab #02 - Defining functions
 
-## Zadania obowiązkowe:
+### Exercises:
 
-### #1:
-
-Napisz funkcję, która jako parametr przyjmuje napis tekstowy i zwraca histogram znaków
-występujących w tym napisie (czyli pary znak-liczba wystąpień). Wynikiem powinien być
-słownik. Przykład:
+### 02.1: Histogram
+Define function, which takes string as input and returns its histogram (pairs: character - number of occurances). The result should be a dictionary. Example:
 
 ```python
 >>> histogram("Ala ma kota")
 {'t': 1, 'a': 3, 'l': 1, 'A': 1, 'k': 1, 'm': 1, 'o': 1}
 ```
 
-### #2:
+### 02.2: Poker game
 
-Napisz następujące funkcje niezbędne do implementacji gry w pokera pięciokartowego dobieranego:
+Define functions that will be needed to implement simple poker game (5-card draw poker):
 
-**#2.1:** ```deck()``` - zwraca listę reprezentującą talię kart w kolejności od najmłodszej do najstarszej. Każda karta posiada 2 atrybuty, będące łańcuchem tekstowym:
-- rangę - możliwe wartości: ```'2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'D', 'K', 'A'``` (karty od 2 do 10 oraz walet, dama, król, as)
-- kolor - możliwe wartości: 
-  - ```'c'``` - &clubs; trefl (**c**lubs)
-  - ```'d'``` - &diams; karo (**d**iamonds)
-  - ```'h'``` - &hearts; kier (**h**earts)
-  - ```'s'``` - &spades; pik (**s**pades)
+**02.2.1:** ``` deck() ``` - returns a list that represents deck of cards ordered from lowest to highest ( https://en.wikipedia.org/wiki/Standard_52-card_deck ). Each card has 2 attributes, that are strings:
+
+- rank - possible values: ``` '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'D', 'K', 'A' ```
+- color - possible values: 
+  - ```'c'``` - &clubs; **c**lubs
+  - ```'d'``` - &diams; **d**iamonds
+  - ```'h'``` - &hearts; **h**earts
+  - ```'s'``` - &spades; **s**pades
  
-Każdym elementem listy powinna być krotka, będąca parą (ranga, kolor). Przykładowo *as pik*:
+Each element (card) is a tuple in a form: (rank, color). For example *ace of spades*:
  
  # &#127137;
  
- reprezentowany będzie jako ```('A', 's')```. Lista powinna zawierać 52 elementy (13 rang * 4 kolory).
+will be represented as ```('A', 's')```. List should contain 52 elements (cards of 13 ranks * 4 colors).
  
-**#2.2:** ```shuffle_deck(deck)``` - przyjmuje listę kart, zwraca karty potasowane (permutacja). Skorzystaj z: https://docs.python.org/3/library/random.html
+**02.2.2:** ```shuffle_deck(deck)``` - takes list of cards, and shuffles them (random permutation). Take a look at the docs: https://docs.python.org/3/library/random.html
 
-**#2.3:** ```deal(deck, n)``` - przyjmuje talię kart (```deck```) oraz liczbę graczy (```n```), zwraca n-elementową listę 5-elementowych list z kartami rozdanymi graczom. Każda 5-elementowa lista kart gracza zawiera 5 krotek reprezentujących kartę.  
+**02.2.3:** ```deal(deck, n)``` - Takes ```deck``` of cards and number of players (```n```) as input, returns n-element list of 5-element lists with cards drawn to players. Each 5-element list of cards contains 5 tuples. Example result of drawing cards to two players:
+
+```
+[[('2', 'c'), ('2', 's'), ('8', 'h'), ('8', 's'), ('A', 'h')],
+[('3', 'c'), ('3', 's'), ('9', 'h'), ('9', 's'), ('K', 'h')]]   
+```
 
 --- 
 
-Zasady gry: https://pl.wikipedia.org/wiki/Poker 
+
